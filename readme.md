@@ -57,19 +57,19 @@ T(n) = n * Log n
 #### common cases
 O(1) very rare
 
-O(Logn) 二分 OR or 倍增
+O(Logn)  BinarySearch OR or Beizeng
 
-O(开根号 n) 分解质因数
+O(Gen n) 
 
-O(n) 高频
+O(n) most common/high frequency
 
-O(nLogn) 一般都要排序 
+O(nLogn) sorting mostly likly is used/needed 
 
-O(n^2) 数组 枚举 动态规划
+O(n^2) array iterator DP
 
-O(n^3) 数组 枚举 动态规划
+O(n^3) array iterator DP
 
-O(2^n) 与组合有关的搜索
+O(2^n) search related with combination
 
-O(n!) 与排列有关的搜索
+O(n!) search related with permutation
 
