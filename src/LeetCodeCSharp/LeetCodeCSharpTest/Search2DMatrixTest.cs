@@ -34,7 +34,6 @@ namespace LeetCodeCSharpTest
         [TestMethod]
         public void Search2DMetrix_b_Test()
         {
-            //int[][] sourceMetrix = new int[][] { }
             int[][] sourceMatrix =new int[][] {
                 new int[] { 1, 2 },
                 new int[] { 3, 4 } };
