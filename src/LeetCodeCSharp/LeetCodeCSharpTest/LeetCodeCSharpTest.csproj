@@ -52,6 +52,7 @@
   <ItemGroup>
     <Compile Include="BinarySearchTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Search2DMatrixTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\LeetCodeCSharp\LeetCodeCSharp.csproj">
