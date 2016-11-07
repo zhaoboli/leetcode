@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="BinarySearch.cs" />
     <Compile Include="BinaryTreeTraversal.cs" />
+    <Compile Include="MaxDepthBinaryTree.cs" />
     <Compile Include="Models\TreeNode.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

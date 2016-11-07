@@ -8,10 +8,34 @@ namespace LeetCodeCSharp.Models
 {
     public class TreeNode
     {
-        public TreeNode Left { get; set; }
+        private int _value;
+        private TreeNode _left;
+        private TreeNode _right;
 
-        public TreeNode Right { get; set; }
+        public TreeNode() { }
+
+        public TreeNode(int val)
+        {
+            this._value = val;
+            this._left = this._right = null;
+        }
+
+        public TreeNode Left
+        {
+            get { return _left; }
+            set { _left = value; }
+        }
+
+        public TreeNode Right
+        {
+            get { return _right; }
+            set { _right = value; }
+        }
         
-        public int Value { get; set; }
+        public int Value
+        {
+            get { return _value; }
+            set { _value = value; }
+        }
     }
 }
