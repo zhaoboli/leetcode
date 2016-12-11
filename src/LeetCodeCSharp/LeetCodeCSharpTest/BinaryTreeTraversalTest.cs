@@ -50,5 +50,24 @@ namespace LeetCodeCSharpTest
             String.Equals(new StringBuilder("12453"), resultStr);
             
         }
+
+        [TestMethod]
+        public void PreOrderTraversalDCTest()
+        {
+            StringBuilder resultStr = new StringBuilder();
+            BinaryTreeTraversal.PreOrderTraversalDC(GetBinaryTree()).Select(x => resultStr.Append(x));
+
+            String.Equals(new StringBuilder("12453"), resultStr);
+            
+        }
+
+        [TestMethod]
+        public void PreOrderTraversalDCTest_Null()
+        {
+            StringBuilder resultStr = new StringBuilder();
+            BinaryTreeTraversal.PreOrderTraversalDC(null).Select(x => resultStr.Append(x));
+
+            String.Equals(new StringBuilder(""), resultStr); 
+        }
     }
 }

@@ -29,6 +29,28 @@ namespace LeetCodeCSharp
             TraversePreOrder(node.Right, result);
 
         }
+
+        //solution: devide and conqure
+        public static List<int> PreOrderTraversalDC(TreeNode root)
+        {
+            List<int> result = new List<int>();
+            
+            //3: return from recursion
+            if (root == null)
+                return result;
+
+            //Devide:
+            List<int> leftResult = PreOrderTraversalDC(root.Left);
+            List<int> rightResult = PreOrderTraversalDC(root.Right);
+
+            //Conqure
+            //2:breakup of recursion
+            result.Add(root.Value);
+            result.AddRange(leftResult);
+            result.AddRange(rightResult);
+
+            return result;
+        }
         
     }
 }
