@@ -152,7 +152,7 @@ crashlytics-build.properties
 fabric.properties
 
 #visual studio code
-.vscode/*
+*/.vscode/*
 !.vscode/settings.json
 !.vscode/task.json
 !.vscode/launch.json
