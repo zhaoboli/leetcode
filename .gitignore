@@ -150,3 +150,10 @@ com_crashlytics_export_strings.xml
 crashlytics.properties
 crashlytics-build.properties
 fabric.properties
+
+#visual studio code
+.vscode/*
+!.vscode/settings.json
+!.vscode/task.json
+!.vscode/launch.json
+!.vscode/extensions.json
