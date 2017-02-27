@@ -1,8 +1,6 @@
-﻿using System;
-
-namespace ConsoleApplication
+﻿namespace ProbSolution
 {
-    public class LastPositionOfTarget
+    public class LastPositionOfTargetProb
     {
         /*
         @param nums: An integer array sorted in asending order
