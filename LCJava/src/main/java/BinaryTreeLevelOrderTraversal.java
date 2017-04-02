@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Queue;
 
 /**
  * Created by zhaobo on 4/2/17.
@@ -10,7 +12,7 @@ public class BinaryTreeLevelOrderTraversal {
      */
     public ArrayList<ArrayList<Integer>> levelOrder(TreeNode root) {
 
-        ArrayList<ArrayList<Integer>> result = new ArrayList();
+        ArrayList<ArrayList<Integer>> result = new ArrayList<ArrayList<Integer>>();
         if (root == null) {
             return result;
         }
@@ -20,10 +22,10 @@ public class BinaryTreeLevelOrderTraversal {
         int index = 0;
         while (index < queue.size()) {
             int end = queue.size();
-            ArrayList<Integer> row = new ArrayList<Integer>();
+            ArrayList<Integer> level = new ArrayList<Integer>();
             while (index < end) {
                 TreeNode node = queue.get(index);
-                row.add(node.val);
+                level.add(node.val);
                 if (node.left != null) {
                     queue.add(node.left);
                 }
@@ -32,7 +34,34 @@ public class BinaryTreeLevelOrderTraversal {
                 }
                 index++;
             }
-            result.add(row);
+            result.add(level);
+        }
+        return result;
+    }
+
+    //using queue
+    public ArrayList<ArrayList<Integer>> levelOrderI(TreeNode root) {
+        ArrayList<ArrayList<Integer>> result = new ArrayList<ArrayList<Integer>>();
+        if (root == null) {
+           return result;
+        }
+        Queue<TreeNode> queue = new LinkedList<TreeNode>();
+        queue.offer(root);
+        while (!queue.isEmpty()) {
+            ArrayList<Integer> level = new ArrayList<Integer>();
+            int queueSize = queue.size();
+            int index = 0;
+            while(index < queueSize) {
+                TreeNode node = queue.poll();
+                if (node.left != null) {
+                   queue.offer(node.left);
+                }
+                if (node.right != null) {
+                   queue.offer(node.right);
+                }
+                index++;
+           }
+           result.add(level);
         }
         return result;
     }

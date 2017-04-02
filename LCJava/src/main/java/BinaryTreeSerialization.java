@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Queue;
 
 /**
  * Created by zhaobo on 3/28/17.
@@ -24,11 +26,12 @@ public class BinaryTreeSerialization {
        }
 
        ArrayList<TreeNode> queue = new ArrayList<TreeNode>();
-       for (int i = 0; i < (queue.size() - 1); i++) {
+       queue.add(root);
+       for (int i = 0; i < queue.size(); i++) {
            TreeNode node = queue.get(i);
            if (node != null)  {
-           queue.add(root.left);
-           queue.add(root.right);
+           queue.add(node.left);
+           queue.add(node.right);
            }
        }
 
@@ -54,12 +57,33 @@ public class BinaryTreeSerialization {
     }
 
     public TreeNode deserialize(String data) {
-        String trimedData = data.substring(1, data.length() - 2);
+        if (data == "{}") {
+            return  null;
+        }
+        String trimedData = data.substring(1, data.length() - 1);
         String[] source = trimedData.split(",");
 
-        for(int i = 0; i < source.length; i++) {
-            //TODO
+        Queue<TreeNode> queue = new LinkedList<TreeNode>();
+        TreeNode root  = new TreeNode(Integer.parseInt(source[0]));
+        queue.offer(root);
+        boolean isLeftChild = true;
+        TreeNode head = queue.poll();
+
+        for(int i = 1; i < source.length; i++) {
+            if (!source[i].equals("#")) {
+               TreeNode node = new TreeNode(Integer.parseInt(source[i]));
+                if(isLeftChild) {
+                    head.left = node;
+                } else {
+                    head.right = node;
+                }
+                queue.offer(node);
+            }
+            isLeftChild = !isLeftChild;
+            if (isLeftChild == true) {
+                head = queue.poll();
+            }
         }
-        return new TreeNode(0, null, null);
+        return root;
     }
 }
