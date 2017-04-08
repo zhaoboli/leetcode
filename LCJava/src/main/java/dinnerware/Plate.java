@@ -1,4 +1,4 @@
-package cookware;
+package dinnerware;
 
 import java.util.HashSet;
 import java.util.Set;
