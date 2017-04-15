@@ -1,3 +1,5 @@
+import ingrediant.TreeNode;
+
 /**
  * Created by zhaobo on 4/1/17.
  * Given the root and two nodes in a Binary Tree. Find the lowest common ancestor(LCA) of the two nodes.
