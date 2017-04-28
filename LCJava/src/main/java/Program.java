@@ -1,7 +1,6 @@
 import dinnerware.Plate;
 
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 /**
  * Created by zhaobo on 4/4/17.
@@ -9,13 +8,27 @@ import java.util.Set;
 public class Program {
 
     public static void main (String[] args) {
-        GraphValidTree graph = new GraphValidTree();
-        int[][] edges = new int[][]{{0, 1}, {0, 2}, {0, 3}, {1, 4}};
-        //int[][] edges =  [[0, 1], [0, 2], [0, 3], [1, 4]];
-        Map<Integer, Set<Integer>> result = graph.initializeGraph(5, edges);
-        System.out.println("this is the end");
+        String crt = "hit";
+        Set<String> temp = new LinkedHashSet<String>(Arrays.asList("hot", "dot", "dog", "lot", "log"));
+        //List<String> result = expand("hit", temp);
+        System.out.println(crt.substring(3));
+    }
 
-        Plate myplate = new Plate("home");
-        myplate.Print();
+    private static List<String> expand(String crt, Set<String> dict) {
+        List<String> expansion = new ArrayList<String>();
+
+        for (int i = 0; i < crt.length(); i++) {
+            for (char ch = 'a'; ch <= 'z'; ch++) {
+                if (ch != crt.charAt(i)) {
+                    String expanded = crt.substring(0, i) + ch
+                            + crt.substring(i + 1);
+                    if (dict.contains(expanded)) {
+                        expansion.add(expanded);
+                    }
+                }
+            }
+        }
+
+        return expansion;
     }
 }
