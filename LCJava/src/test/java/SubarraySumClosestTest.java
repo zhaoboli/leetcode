@@ -20,4 +20,10 @@ public class SubarraySumClosestTest {
         assertArrayEquals(expected, obj.subarraySumClosest(inputArr));
     }
 
+    @Test
+    public void subarraySumClosestCaseOne() throws Exception {
+        int[] inputArr = {-3, 1, 1, -3, 5};
+        int[] expected = {0, 2};
+        assertArrayEquals(expected, obj.subarraySumClosest(inputArr));
+    }
 }
