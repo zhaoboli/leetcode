@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 /**
  * Created by zhaobo on 4/30/17.
  */
@@ -40,6 +42,40 @@ public class SortColorsII {
         int temp = colors[from];
         colors[from] = colors[to];
         colors[to] = temp;
+    }
+
+    public void sortColors2RainbowSort(int[] colors, int k) {
+        if (colors == null || colors.length == 0) {
+            return;
+        }
+        rainbowSortHelper(colors, 0, colors.length - 1, 1, k);
+    }
+
+    private void rainbowSortHelper(int[] colors, int start, int end, int from, int to) {
+        if (from >= to) {
+            return;
+        }
+        int left = start;
+        int right = end;
+        int mid = (from + to) / 2;
+
+        while (left <= right) {
+            while (left <= right && colors[left] <= mid) {
+                left++;
+            }
+            while (left <= right && colors[right] > mid) {
+                right--;
+            }
+            if (left <= right) {
+                swap(colors, left, right);
+                right--;
+                left++;
+            }
+
+        }
+        System.out.println(Arrays.toString(colors));
+        rainbowSortHelper(colors, start, left - 1, from, mid );
+        rainbowSortHelper(colors,  right + 1, end, mid + 1, to);
     }
 }
 
