@@ -9,8 +9,9 @@ public class Program {
 
     public static void main (String[] args) {
         String crt = "hit";
-        Set<String> temp = new LinkedHashSet<String>(Arrays.asList("hot", "dot", "dog", "lot", "log"));
+        //Set<String> temp = new LinkedHashSet<String>(Arrays.asList("hot", "dot", "dog", "lot", "log"));
         //List<String> result = expand("hit", temp);
+        String target = crt.substring(3);
         System.out.println(crt.substring(3));
     }
 
