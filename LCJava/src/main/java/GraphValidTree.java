@@ -1,5 +1,4 @@
 import java.util.*;
-
 /**
  * Created by zhaobo on 4/3/17.
  */
@@ -46,5 +45,52 @@ public class GraphValidTree {
             }
         }
         return hash.size() == n;
+    }
+
+    public boolean validTreeIi(int n, int[][] edges) {
+        if (edges == null) {
+            return false;
+        }
+        if ((n - 1) != edges.length) {
+            return false;
+        }
+        UnionFind uf = new UnionFind(n);
+
+        for (int i = 0; i < edges.length; i++) {
+            uf.connect(edges[i][0], edges[i][1]);
+        }
+        int root = uf.find(0);
+        for (int i = 0; i < n; i++) {
+            if (uf.find(i) != root) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private class UnionFind {
+        int[] father = null;
+
+        public UnionFind(int n) {
+            father = new int[n];
+            for (int i = 0; i < n; i++) {
+                father[i]  = i;
+            }
+        }
+
+        private void connect(int left, int right) {
+            int fatherLeft = find(left);
+            int fatherRight = find(right);
+            if (fatherLeft != fatherRight) {
+                father[fatherLeft] = fatherRight;
+            }
+        }
+
+        private int find(int child) {
+            if (father[child] != child) {
+                return father[child] = find(father[child]);
+            }
+            return child;
+        }
     }
 }
